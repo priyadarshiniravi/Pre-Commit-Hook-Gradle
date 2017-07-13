@@ -1,0 +1,10 @@
+#!/bin/sh
+# stash any unstaged changes
+git stash -q --keep-index
+
+./gradlew test
+RESULT=$
+# unstash the unstashed changes
+git stash pop -q
+
+exit $RESULT
